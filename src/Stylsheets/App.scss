@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.App {
+  text-align: center;
+  background-image: url('../images/stars.jpg');
+
+  .header {
+    min-height: 50px;
+  }
+  .main {
+    .character__list {
+      padding-top: 20px;
+      margin: 0 auto;
+      display: grid;
+      grid-gap: 5px;
+      color: white;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .character__list {
+    grid-template-columns: repeat(3, 250px);
+    grid-gap: 0;
+    padding: 5px 10px 0;
+  }
+}

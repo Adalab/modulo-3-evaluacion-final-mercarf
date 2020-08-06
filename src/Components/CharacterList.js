@@ -12,7 +12,7 @@ const CharacterList = (props) => {
       />
     );
   });
-  return <section>{cardList}</section>;
+  return <ul className='character__list'>{cardList}</ul>;
 };
 
 export default CharacterList;
