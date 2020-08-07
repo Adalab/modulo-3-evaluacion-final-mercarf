@@ -17,9 +17,9 @@ Vamos de definir las distintas partes del ejercicio:
 3. [Componentes del listado de personajes](#Componentes-del-listado-de-personajes)
 4. [Detalle de personajes](#Detalle-de-personajes)
 5. [Detallitos de calidad](#Detallitos-de-calidad)
-6. [BONUS: Mejoras visuales](#BONUS:Mejoras-visuales)
-7. [BONUS: URL compartible](#BONUS:URL-compartible)
-7. [BONUS: Ordenación](#BONUS:Ordenación)
+6. [BONUS: Mejoras visuales](#BONUS-Mejoras-visuales)
+7. [BONUS: URL compartible](#bonus-url-compartible)
+7. [BONUS: Ordenación](#BONUS-Ordenación)
 
 1.  ### Listado de personajes
 
