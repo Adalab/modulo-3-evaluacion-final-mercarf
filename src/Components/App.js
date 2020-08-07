@@ -6,6 +6,7 @@ import getDataFromApi from '../Services/getDataFromApi';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
+// import Error from './Error';
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -18,6 +19,11 @@ const App = () => {
     });
   }, []);
 
+  //Guardamos en el LocalStorage el valor introducido en el input
+  /* useEffect(() => {
+    localStorage.setItem('filterName', JSON.stringify(filterName));
+  }, [filterName]); */
+
   // console.log(cards);
 
   const handleFilterName = (data) => {
@@ -26,8 +32,11 @@ const App = () => {
 
   const renderCharacterDetail = (props) => {
     // console.log(props);
-    const routeCharacterId = parseInt(props.match.params.characterId);
-    const character = cards.find((card) => card.id === routeCharacterId);
+    const routeCharacterId = props.match.params.characterId;
+    const character = cards.find(
+      (card) => card.id === parseInt(routeCharacterId)
+    );
+    console.log(character);
     if (character) {
       return (
         <CharacterDetail
@@ -35,13 +44,13 @@ const App = () => {
           image={character.image}
           species={character.species}
           gender={character.gender}
-          origin={character.origin}
+          origin={character.origin.nam}
           status={character.status}
-          episode={character.episode}
+          episode={character.episode.length}
         />
       );
     } else {
-      return <p>Producto no encontrado</p>;
+      return <p>Este personaje no se encuentra disponible</p>;
     }
   };
 

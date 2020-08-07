@@ -18,7 +18,7 @@ const Filters = (props) => {
           type='text'
           className='form__label__input'
           id='filterName'
-          //   value={props.filterName}
+          value={props.filterName}
           onChange={handleFilterName}
           placeholder='Nombre del personaje'
         ></input>

@@ -4,14 +4,6 @@ import { Link } from 'react-router-dom';
 const CharacterDetail = (props) => {
   console.log(props);
 
-  //   const handleModalContentClick = (ev) => {
-  //     ev.preventDefault();
-  //   };
-
-  //   const episodeList = props.episode.map((chap, index) => {
-  //     return <li key={index}>{chap.id}</li>;
-  //   });
-
   return (
     <div className='character__detail'>
       <div className='content'>
@@ -38,11 +30,11 @@ const CharacterDetail = (props) => {
             </li>
             <li>
               <h4>Origen:</h4>
-              <p>{props.origin.name}</p>
+              <p>{props.origin}</p>
             </li>
             <li>
               <h4>Episodios:</h4>
-              <p>{props.episode.length}</p>
+              <p>{props.episode}</p>
             </li>
             <li>
               <h4>Estado vital:</h4>
