@@ -63,6 +63,21 @@
       text-align: left;
       &__title {
         padding-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        a {
+          color: aquamarine;
+          &__icon {
+            cursor: pointer;
+            padding: 5px;
+          }
+          &:hover {
+            color: khaki;
+            transform: scale(1.5);
+          }
+        }
       }
       &__box {
         display: flex;

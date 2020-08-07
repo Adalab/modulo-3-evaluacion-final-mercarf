@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
   console.log(props);
@@ -17,7 +17,9 @@ const CharacterDetail = (props) => {
       <div className='content'>
         <div className='content__title'>
           <h3 className='content__title__name'>{props.name}</h3>
-          <span className='content__title__icon fas fa-times'></span>
+          <Link to='/'>
+            <span className='content__title__icon fas fa-times'></span>
+          </Link>
         </div>
         <div className='content__box'>
           <img
@@ -27,19 +29,24 @@ const CharacterDetail = (props) => {
           />
           <ul className='content__description'>
             <li>
-              <strong>Especie:</strong> {props.species}
+              <h4>Especie:</h4>
+              <p>{props.species}</p>
             </li>
             <li>
-              <strong>Género:</strong> {props.gender}
+              <h4>Género: </h4>
+              <p>{props.gender}</p>
             </li>
             <li>
-              <strong>Origen:</strong> {props.origin.name}{' '}
+              <h4>Origen:</h4>
+              <p>{props.origin.name}</p>
             </li>
             <li>
-              <strong>Episodios:</strong> {props.episode.length}
+              <h4>Episodios:</h4>
+              <p>{props.episode.length}</p>
             </li>
             <li>
-              <strong>Estado vital:</strong> {props.status}
+              <h4>Estado vital:</h4>
+              <p>{props.status}</p>
             </li>
           </ul>
         </div>
