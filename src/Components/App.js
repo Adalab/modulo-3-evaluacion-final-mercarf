@@ -19,7 +19,7 @@ const App = () => {
   // console.log(cards);
 
   const renderCharacterDetail = (props) => {
-    console.log(props);
+    // console.log(props);
     const routeCharacterId = parseInt(props.match.params.characterId);
     const character = cards.find((card) => card.id === routeCharacterId);
     if (character) {
@@ -28,6 +28,7 @@ const App = () => {
           name={character.name}
           image={character.image}
           species={character.species}
+          gender={character.gender}
           origin={character.origin}
           status={character.status}
           episode={character.episode}
