@@ -10,6 +10,17 @@ El ejercicio consiste en desarrollar una página web con un **listado de persona
 podemos filtrar por el nombre del personaje. Vamos a usar React para realizarlo.
 Vamos de definir las distintas partes del ejercicio:
 
+### INDICE
+
+1. [Listado de personajes](#Listado-de-personajes)
+2. [Filtrado de personajes](#Filtrado-de-personajes)
+3. [Componentes del listado de personajes](#Componentes-del-listado-de-personajes)
+4. [Detalle de personajes](#Detalle-de-personajes)
+5. [Detallitos de calidad](#Detallitos-de-calidad)
+6. [BONUS: Mejoras visuales](#BONUS:-Mejoras-visuales)
+7. [BONUS: URL compartible](#BONUS:-URL-compartible)
+7. [BONUS: Ordenación](#BONUS:-Ordenación)
+
 1.  ### Listado de personajes
 
 En primer lugar, vamos a realizar una web con el listado de personajes de Rick and Morty.
@@ -40,6 +51,7 @@ Vamos a implementar una **nueva funcionalidad**: al hacer clic sobre la tarjeta 
 En la pantalla de detalle aparecerá además de la foto, nombre y especie, el planeta de origen, el número de episodios en los que aparece y si está **vivo** o **muerto**.
 
 5.  ### Detallitos de calidad
+
 - Como nos gusta cuidar la semántica, el campo de texto debe estar recubierto por una etiqueta `form`.
 - Si estando en el campo de filtrado pulsamos intro debéis impedir que el navegador navegue o cambie la ruta sin querer.
 - Si se busca por un texto por ejemplo "XXX" y no hay ningún personaje que coincida con dicho texto se debe mostrar un mensaje del tipo "No hay ningún personaje que coincida con la palabra XXX".
