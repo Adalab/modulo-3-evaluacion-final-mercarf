@@ -9,34 +9,35 @@ import Filters from './Filters';
 // import Error from './Error';
 
 const App = () => {
-  const [cards, setCards] = useState([]);
+  const [characters, setcharacters] = useState([]);
   const [filterName, setFilterName] = useState('');
 
   useEffect(() => {
     getDataFromApi().then((data) => {
-      setCards(data);
+      setcharacters(data);
       // console.log(data);
     });
   }, []);
-
+  console.log(characters);
   //Guardamos en el LocalStorage el valor introducido en el input
   /* useEffect(() => {
     localStorage.setItem('filterName', JSON.stringify(filterName));
   }, [filterName]); */
 
-  // console.log(cards);
-
+  // Funcion por lifting, recogemos el valor introducido en el input
   const handleFilterName = (data) => {
     setFilterName(data.value);
+    console.log(data);
   };
 
+  //Funcion que se encarga de pintar el detalle de las tarjetas
   const renderCharacterDetail = (props) => {
     // console.log(props);
     const routeCharacterId = props.match.params.characterId;
-    const character = cards.find(
-      (card) => card.id === parseInt(routeCharacterId)
+    const character = characters.find(
+      (character) => character.id === parseInt(routeCharacterId)
     );
-    console.log(character);
+    // Si la busqueda/personaje existe, me pintas la tarjeta, sino el error
     if (character) {
       return (
         <CharacterDetail
@@ -54,9 +55,18 @@ const App = () => {
     }
   };
 
+  const orderName = () => {
+    characters.sort((a, b) => (a.name > b.name ? 1 : -1));
+  };
+
+  // Funcion que se encarga de pintar/filtrar las tarjetas que coincidan con letras introducidas en el input
   const renderFilteredCharacter = () => {
-    return cards.filter((card) => {
-      return card.name.toUpperCase().includes(filterName.toUpperCase());
+    orderName();
+    return characters.filter((character) => {
+      const characters = character.name
+        .toUpperCase()
+        .includes(filterName.toUpperCase());
+      return characters;
     });
   };
 
@@ -72,7 +82,7 @@ const App = () => {
               filterName={filterName}
               handleFilterName={handleFilterName}
             />
-            <CharacterList cards={renderFilteredCharacter()} />
+            <CharacterList characters={renderFilteredCharacter()} />
           </Route>
           <Route
             path='/character/:characterId'
