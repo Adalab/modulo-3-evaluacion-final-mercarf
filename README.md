@@ -19,7 +19,9 @@ Vamos de definir las distintas partes del ejercicio:
 5. [Detallitos de calidad](#Detallitos-de-calidad)
 6. [BONUS: Mejoras visuales](#BONUS-Mejoras-visuales)
 7. [BONUS: URL compartible](#bonus-url-compartible)
-7. [BONUS: Ordenación](#BONUS-Ordenación)
+8. [BONUS: Ordenación](#BONUS-Ordenación)
+
+--------------------------------------------------------------------------------------
 
 1.  ### Listado de personajes
 
