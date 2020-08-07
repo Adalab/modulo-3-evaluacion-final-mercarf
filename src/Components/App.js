@@ -5,9 +5,11 @@ import Logo from '../images/Logo.png';
 import getDataFromApi from '../Services/getDataFromApi';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
+import Filters from './Filters';
 
 const App = () => {
   const [cards, setCards] = useState([]);
+  const [filterName, setFilterName] = useState('');
 
   useEffect(() => {
     getDataFromApi().then((data) => {
@@ -17,6 +19,10 @@ const App = () => {
   }, []);
 
   // console.log(cards);
+
+  const handleFilterName = (data) => {
+    setFilterName(data.value);
+  };
 
   const renderCharacterDetail = (props) => {
     // console.log(props);
@@ -39,6 +45,12 @@ const App = () => {
     }
   };
 
+  const renderFilteredCharacter = () => {
+    return cards.filter((card) => {
+      return card.name.toUpperCase().includes(filterName.toUpperCase());
+    });
+  };
+
   return (
     <div className='App'>
       <header className='header'>
@@ -47,7 +59,11 @@ const App = () => {
       <main className='main'>
         <Switch>
           <Route exact path='/'>
-            <CharacterList cards={cards} />
+            <Filters
+              filterName={filterName}
+              handleFilterName={handleFilterName}
+            />
+            <CharacterList cards={renderFilteredCharacter()} />
           </Route>
           <Route
             path='/character/:characterId'
