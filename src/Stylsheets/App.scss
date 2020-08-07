@@ -7,24 +7,58 @@
 
 .App {
   text-align: center;
-  background-image: url('../images/stars.jpg');
+}
 
-  .header {
-    min-height: 50px;
+.header {
+  min-height: 50px;
+}
+
+.main {
+  .character__list {
+    padding-top: 20px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 5px;
+    color: white;
+    &__card {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      background-color: darkcyan;
+      color: aquamarine;
+      margin: 10px;
+      &:hover {
+        background-color: aquamarine;
+        color: darkcyan;
+      }
+
+      &__box {
+        &__img {
+          width: 200px;
+          border-radius: 10px;
+        }
+      }
+    }
   }
-  .main {
-    .character__list {
-      padding-top: 20px;
-      margin: 0 auto;
-      display: grid;
-      grid-gap: 5px;
-      color: white;
+
+  .character__detail {
+    height: 100vh;
+    .content {
+      background-color: darkcyan;
+      border-radius: 20px;
+      width: 600px;
+      margin: auto;
+      padding: 20px;
     }
   }
 }
-@media (min-width: 768px) {
+
+@media all and (min-width: 768px) {
   .character__list {
-    grid-template-columns: repeat(3, 250px);
+    grid-template-columns: repeat(4, 250px);
     grid-gap: 0;
     padding: 5px 10px 0;
   }

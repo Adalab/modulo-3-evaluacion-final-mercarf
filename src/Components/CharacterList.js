@@ -6,6 +6,7 @@ const CharacterList = (props) => {
     return (
       <CharacterCard
         key={card.id}
+        id={card.id}
         image={card.image}
         name={card.name}
         species={card.species}
