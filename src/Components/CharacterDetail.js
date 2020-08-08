@@ -52,7 +52,7 @@ const CharacterDetail = (props) => {
     <div className='character__detail'>
       <div className='content'>
         <div className='content__title'>
-          <h3 className='content__title__name'>{props.name}</h3>
+          <h2 className='content__title__name'>{props.name}</h2>
           <Link to='/'>
             <span className='content__title__icon fas fa-times'></span>
           </Link>

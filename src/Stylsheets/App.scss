@@ -138,23 +138,7 @@
     min-height: 80vh;
     margin: auto;
     width: 100%;
-    .leyend {
-      background-color: darkcyan;
-      color: aquamarine;
-      width: 650px;
-      margin: auto;
-      padding: 30px;
-      margin-top: 20px;
-      border-radius: 15px;
 
-      &__list {
-        display: flex;
-      }
-    }
-    .leyend-logo {
-      width: 40px;
-      height: 40px;
-    }
     .content {
       background-color: darkcyan;
       color: aquamarine;
