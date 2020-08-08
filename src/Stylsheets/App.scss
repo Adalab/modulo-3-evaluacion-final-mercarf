@@ -43,6 +43,7 @@
     label {
       font-weight: bold;
       letter-spacing: 1.5px;
+      font-size: 20px;
     }
     input {
       margin-left: 10px;
@@ -97,7 +98,22 @@
       grid-template-columns: repeat(4, 250px);
       padding: 5px 10px 0;
     }
-
+    .list__Alien:hover {
+      background-color: khaki;
+      color: darkcyan;
+      .Alien {
+        background-color: brown;
+        color: aquamarine;
+      }
+    }
+    .list__Human:hover {
+      background-color: aquamarine;
+      color: darkcyan;
+      .Human {
+        background-color: darkcyan;
+        color: aquamarine;
+      }
+    }
     &__card {
       padding: 15px;
       display: flex;
@@ -111,18 +127,6 @@
 
       &__name {
         margin-bottom: 10px;
-      }
-      &:hover {
-        background-color: aquamarine;
-        color: darkcyan;
-        .Human {
-          background-color: darkcyan;
-          color: aquamarine;
-        }
-        .Alien {
-          background-color: brown;
-          color: aquamarine;
-        }
       }
 
       &__box {

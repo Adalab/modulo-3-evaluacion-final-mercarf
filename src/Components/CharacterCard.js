@@ -7,7 +7,7 @@ const CharacterCard = (props) => {
 
   return (
     <Link to={`/character/${props.id}`}>
-      <li className='character__list__card'>
+      <li className={`character__list__card list__${props.species}`}>
         <div className='character__list__card__box'>
           <img
             className='character__list__card__box__img'

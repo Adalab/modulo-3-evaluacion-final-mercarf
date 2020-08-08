@@ -12,7 +12,7 @@ const App = () => {
   /* En el estado por defecto recogemos el valor que haya guardado en el LOCALSTORAGE
   para conservar la ultima búsqueda realizada por el usuario */
   const [filterName, setFilterName] = useState(
-    JSON.parse(localStorage.getItem('filterName'))
+    JSON.parse(localStorage.getItem('filterName') || '')
   );
 
   // Realizamos acciones en las diferentes fases del CICLO DE VIDA

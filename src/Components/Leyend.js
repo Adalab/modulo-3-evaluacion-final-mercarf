@@ -45,9 +45,7 @@ const Leyend = (props) => {
         </li>
         <li>
           <p>Estado Desconocido</p>
-          <img src={aliveLogo} alt={props.status} className='leyend-logo' />
           <img src={unknownLogo} alt={props.status} className='leyend-logo' />
-          <img src={deathLogo} alt={props.status} className='leyend-logo' />
         </li>
         <li>
           <p>Vivo</p>
