@@ -11,7 +11,7 @@ import deathLogo from '../images/tumba.png';
 
 const Leyend = (props) => {
   return (
-    <div className='leyend'>
+    <div className='leyend hidden'>
       <h3 className='leyend__title'>Leyenda</h3>
       <ul className='leyend__list'>
         <li>
