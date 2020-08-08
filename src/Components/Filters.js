@@ -1,14 +1,17 @@
 import React from 'react';
 
 const Filters = (props) => {
+  // Recogemos el valor introducido en el input y lo pasamos por lifting al componente manejador App
   const handleFilterName = (ev) => {
-    ev.preventDefault(); //prevenimos las acciones por defecto, como que refresque al pulsar tecla enter
+    ev.preventDefault();
 
     props.handleFilterName({
       key: 'FilterName',
       value: ev.target.value,
     });
   };
+
+  // Prevenimos las acciones por defecto, como que refresque al pulsar tecla enter
   const preventDefaultActions = (ev) => {
     ev.preventDefault();
   };

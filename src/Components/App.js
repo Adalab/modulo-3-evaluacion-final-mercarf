@@ -8,21 +8,26 @@ import Filters from './Filters';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [filterName, setFilterName] = useState('');
 
+  /* En el estado por defecto recogemos el valor que haya guardado en el LOCALSTORAGE
+  para conservar la ultima búsqueda realizada por el usuario */
+  const [filterName, setFilterName] = useState(
+    JSON.parse(localStorage.getItem('filterName'))
+  );
+
+  // Realizamos acciones en las diferentes fases del CICLO DE VIDA
   useEffect(() => {
     getDataFromApi().then((data) => {
       setCharacters(data);
-      // console.log(data);
     });
   }, []);
-  console.log(characters);
-  //Guardamos en el LocalStorage el valor introducido en el input
-  /* useEffect(() => {
-    localStorage.setItem('filterName', JSON.stringify(filterName));
-  }, [filterName]); */
 
-  // Funcion por lifting, recogemos el valor introducido en el input
+  // Guardamos en el LOCALSTORAGE el valor introducido en el input
+  useEffect(() => {
+    localStorage.setItem('filterName', JSON.stringify(filterName));
+  }, [filterName]);
+
+  // Funcion por LIFTING, recogemos el valor introducido en el input
   const handleFilterName = (data) => {
     setFilterName(data.value);
     console.log(data);
@@ -35,28 +40,37 @@ const App = () => {
     const character = characters.find(
       (character) => character.id === parseInt(routeCharacterId)
     );
-    // Si la busqueda/personaje existe, me pintas la tarjeta, sino el error
-
-    return (
-      <CharacterDetail
-        name={character.name}
-        image={character.image}
-        species={character.species}
-        gender={character.gender}
-        origin={character.origin.name}
-        status={character.status}
-        episode={character.episode.length}
-      />
-    );
+    // Si el url de la barra de busqueda/personaje existe, me pintas la tarjeta, sino el error
+    if (character) {
+      return (
+        <CharacterDetail
+          name={character.name}
+          image={character.image}
+          species={character.species}
+          gender={character.gender}
+          origin={character.origin.name}
+          status={character.status}
+          episode={character.episode.length}
+        />
+      );
+    } else {
+      return (
+        <p className='characterDetailNotFound'>
+          El personaje que buscas no existe
+        </p>
+      );
+    }
   };
 
+  // Funcion para ordenar alfabeticamente los personajes
   const orderName = () => {
     characters.sort((a, b) =>
       a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
     );
   };
 
-  // Funcion que se encarga de pintar/filtrar las tarjetas que coincidan con letras introducidas en el input
+  /* Funcion que se encarga de pintar/filtrar las tarjetas que coincidan con las 
+ letras introducidas en el input */
   const renderFilteredCharacter = () => {
     orderName();
     return characters.filter((character) => {

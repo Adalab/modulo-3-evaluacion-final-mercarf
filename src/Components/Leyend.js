@@ -6,7 +6,7 @@ import alienLogo from '../images/extraterrestre.png';
 import femaleLogo from '../images/femenino.svg';
 import maleLogo from '../images/masculino.svg';
 import unknownLogo from '../images/interrogacion-color.svg';
-import aliveLogo from '../images/corazon-color.svg';
+import aliveLogo from '../images/corazon-rosa.svg';
 import deathLogo from '../images/tumba.png';
 
 const Leyend = (props) => {

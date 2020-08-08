@@ -64,7 +64,16 @@
       outline: 0 none;
     }
   }
-  .notFound {
+  .characterNotFound {
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    color: aquamarine;
+    background-color: darkcyan;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .characterDetailNotFound {
     font-weight: bold;
     letter-spacing: 1.5px;
     font-size: 20px;
@@ -137,6 +146,7 @@
       padding: 30px;
       margin-top: 20px;
       border-radius: 15px;
+
       &__list {
         display: flex;
       }

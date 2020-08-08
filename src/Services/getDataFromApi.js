@@ -1,3 +1,4 @@
+// Funcion que recoge los datos del API
 const getDataFromApi = () => {
   return fetch('https://rickandmortyapi.com/api/character/')
     .then((response) => response.json())

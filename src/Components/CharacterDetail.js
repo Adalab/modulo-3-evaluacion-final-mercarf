@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Leyend from './Leyend';
+// Imágenes/iconos importados
 import humanLogo from '../images/humano.svg';
 import womanLogo from '../images/mujer-color.png';
 import manLogo from '../images/hombre.png';
@@ -8,9 +9,10 @@ import alienLogo from '../images/extraterrestre.png';
 import femaleLogo from '../images/femenino.svg';
 import maleLogo from '../images/masculino.svg';
 import unknownLogo from '../images/interrogacion-color.svg';
-import aliveLogo from '../images/corazon-color.svg';
+import aliveLogo from '../images/corazon-rosa.svg';
 import deathLogo from '../images/tumba.png';
 
+// Función para renderizar el estado correcto de cada personaje
 const CharacterDetail = (props) => {
   const changeImgStatus = () => {
     if (props.status === 'Alive') {
@@ -21,6 +23,8 @@ const CharacterDetail = (props) => {
       return unknownLogo;
     }
   };
+
+  // Función para renderizar la especie correcta de cada personaje
   const changeImgSpecies = () => {
     if (props.species === 'Human') {
       return humanLogo;
@@ -28,6 +32,8 @@ const CharacterDetail = (props) => {
       return alienLogo;
     }
   };
+
+  // Función para renderizar la especie correcta de cada personaje
   const changeImgGender = () => {
     if (props.gender === 'Female' && props.species === 'Human') {
       return womanLogo;
@@ -39,7 +45,8 @@ const CharacterDetail = (props) => {
       return maleLogo;
     }
   };
-  console.log(props);
+
+  // console.log(props);
 
   return (
     <div className='character__detail'>
