@@ -9,9 +9,12 @@ const Filters = (props) => {
       value: ev.target.value,
     });
   };
+  const preventDefaultActions = (ev) => {
+    ev.preventDefault();
+  };
 
   return (
-    <form className='form'>
+    <form className='form' onSubmit={preventDefaultActions}>
       <label className='form__label'>
         Busca tu personaje favorito:
         <input

@@ -5,7 +5,6 @@ import getDataFromApi from '../Services/getDataFromApi';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
-// import Error from './Error';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
