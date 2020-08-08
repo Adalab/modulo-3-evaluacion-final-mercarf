@@ -1,7 +1,7 @@
 import React from 'react';
 import humanLogo from '../images/humano.svg';
 import womanLogo from '../images/hombre.png';
-import manLogo from '../images/mujer (1).png';
+import manLogo from '../images/mujer-color.png';
 import alienLogo from '../images/extraterrestre.png';
 import femaleLogo from '../images/femenino.svg';
 import maleLogo from '../images/masculino.svg';

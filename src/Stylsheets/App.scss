@@ -35,7 +35,7 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   .form {
     color: aquamarine;
@@ -47,9 +47,8 @@
     input {
       margin-left: 10px;
       padding: 5px 5px 5px 10px;
-
+      border: 2px solid darkcyan;
       border-radius: 5px;
-
       background-color: aquamarine;
       color: darkcyan;
       font-weight: bolder;
@@ -64,6 +63,15 @@
       box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px khaki;
       outline: 0 none;
     }
+  }
+  .notFound {
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    color: aquamarine;
+    background-color: darkcyan;
+    padding: 10px;
+    border-radius: 10px;
   }
   .character__list {
     padding-top: 20px;

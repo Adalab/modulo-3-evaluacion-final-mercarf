@@ -37,21 +37,18 @@ const App = () => {
       (character) => character.id === parseInt(routeCharacterId)
     );
     // Si la busqueda/personaje existe, me pintas la tarjeta, sino el error
-    if (character) {
-      return (
-        <CharacterDetail
-          name={character.name}
-          image={character.image}
-          species={character.species}
-          gender={character.gender}
-          origin={character.origin.name}
-          status={character.status}
-          episode={character.episode.length}
-        />
-      );
-    } else {
-      return <p>Este personaje no se encuentra disponible</p>;
-    }
+
+    return (
+      <CharacterDetail
+        name={character.name}
+        image={character.image}
+        species={character.species}
+        gender={character.gender}
+        origin={character.origin.name}
+        status={character.status}
+        episode={character.episode.length}
+      />
+    );
   };
 
   const orderName = () => {
@@ -83,7 +80,10 @@ const App = () => {
               filterName={filterName}
               handleFilterName={handleFilterName}
             />
-            <CharacterList characters={renderFilteredCharacter()} />
+            <CharacterList
+              filterName={filterName}
+              characters={renderFilteredCharacter()}
+            />
           </Route>
           <Route
             path='/character/:characterId'

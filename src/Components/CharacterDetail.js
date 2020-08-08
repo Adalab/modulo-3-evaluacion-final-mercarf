@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Leyend from './Leyend';
 import humanLogo from '../images/humano.svg';
-import womanLogo from '../images/hombre.png';
-import manLogo from '../images/mujer-color.png';
+import womanLogo from '../images/mujer-color.png';
+import manLogo from '../images/hombre.png';
 import alienLogo from '../images/extraterrestre.png';
 import femaleLogo from '../images/femenino.svg';
 import maleLogo from '../images/masculino.svg';
@@ -70,18 +70,30 @@ const CharacterDetail = (props) => {
             <ul className='content__description2'>
               <li>
                 <h4>Especie:</h4>
-                <p>{props.species}</p>
-                <img src={changeImgSpecies()} className='detail-logo' />
+                {/* <p>{props.species}</p> */}
+                <img
+                  src={changeImgSpecies()}
+                  alt={props.species}
+                  className='detail-logo'
+                />
               </li>
               <li>
                 <h4>Género: </h4>
-                <p>{props.gender}</p>
-                <img src={changeImgGender()} className='detail-logo' />
+                {/* <p>{props.gender}</p> */}
+                <img
+                  src={changeImgGender()}
+                  alt={props.gender}
+                  className='detail-logo'
+                />
               </li>
               <li>
                 <h4>Estado vital:</h4>
-                <p>{props.status}</p>
-                <img src={changeImgStatus()} className='detail-logo' />
+                {/* <p>{props.status}</p> */}
+                <img
+                  src={changeImgStatus()}
+                  alt={props.status}
+                  className='detail-logo'
+                />
               </li>
             </ul>
           </div>
