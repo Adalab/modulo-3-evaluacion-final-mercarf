@@ -11,9 +11,12 @@ const App = () => {
 
   /* En el estado por defecto recogemos el valor que haya guardado en el LOCALSTORAGE
   para conservar la ultima búsqueda realizada por el usuario */
-  const [filterName, setFilterName] = useState(
-    JSON.parse(localStorage.getItem('filterName') || '')
-  );
+  const [filterName, setFilterName] = useState('');
+
+  // const getLS = JSON.parse(localStorage.getItem('filterName'));
+  // if (getLS !== null) {
+  //   setFilterName(getLS);
+  // }
 
   // Realizamos acciones en las diferentes fases del CICLO DE VIDA
   useEffect(() => {
