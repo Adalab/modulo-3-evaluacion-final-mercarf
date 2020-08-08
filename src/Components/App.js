@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../Stylsheets/App.scss';
-import Logo from '../images/Logo.png';
 import getDataFromApi from '../Services/getDataFromApi';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Leyend from './Leyend';
 
 const CharacterDetail = (props) => {
   console.log(props);
@@ -47,6 +48,11 @@ const CharacterDetail = (props) => {
           </div>
         </div>
       </div>
+      <Leyend
+        species={props.species}
+        gender={props.gender}
+        status={props.status}
+      />
     </div>
   );
 };
