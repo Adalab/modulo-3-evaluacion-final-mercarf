@@ -8,12 +8,12 @@ import Filters from './Filters';
 // import Error from './Error';
 
 const App = () => {
-  const [characters, setcharacters] = useState([]);
+  const [characters, setCharacters] = useState([]);
   const [filterName, setFilterName] = useState('');
 
   useEffect(() => {
     getDataFromApi().then((data) => {
-      setcharacters(data);
+      setCharacters(data);
       // console.log(data);
     });
   }, []);
@@ -55,7 +55,9 @@ const App = () => {
   };
 
   const orderName = () => {
-    characters.sort((a, b) => (a.name > b.name ? 1 : -1));
+    characters.sort((a, b) =>
+      a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+    );
   };
 
   // Funcion que se encarga de pintar/filtrar las tarjetas que coincidan con letras introducidas en el input
@@ -72,13 +74,7 @@ const App = () => {
   return (
     <div className='App'>
       <header className='header'>
-        <div className='header__box'>
-          {/* <img
-            src={Logo}
-            alt='Logo Rick and Morty'
-            className='header__box__logo'
-          /> */}
-        </div>
+        <div className='header__img'></div>
       </header>
       <main className='main'>
         <Switch>
