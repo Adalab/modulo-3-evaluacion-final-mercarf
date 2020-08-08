@@ -19,28 +19,32 @@ const CharacterDetail = (props) => {
             src={props.image}
             alt={props.name}
           />
-          <ul className='content__description'>
-            <li>
-              <h4>Especie:</h4>
-              <p>{props.species}</p>
-            </li>
-            <li>
-              <h4>Género: </h4>
-              <p>{props.gender}</p>
-            </li>
-            <li>
-              <h4>Origen:</h4>
-              <p>{props.origin}</p>
-            </li>
-            <li>
-              <h4>Episodios:</h4>
-              <p>{props.episode}</p>
-            </li>
-            <li>
-              <h4>Estado vital:</h4>
-              <p>{props.status}</p>
-            </li>
-          </ul>
+          <div className='content__description'>
+            <ul className='content__description1'>
+              <li>
+                <h4>Origen:</h4>
+                <p>{props.origin}</p>
+              </li>
+              <li>
+                <h4>Episodios:</h4>
+                <p>{props.episode}</p>
+              </li>
+            </ul>
+            <ul className='content__description2'>
+              <li>
+                <h4>Especie:</h4>
+                <p>{props.species}</p>
+              </li>
+              <li>
+                <h4>Género: </h4>
+                <p>{props.gender}</p>
+              </li>
+              <li>
+                <h4>Estado vital:</h4>
+                <p>{props.status}</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

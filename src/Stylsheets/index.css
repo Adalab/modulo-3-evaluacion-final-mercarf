@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('../images/stars.jpg');
   height: 100vh;
+  width: 100%;
 }
 
 code {

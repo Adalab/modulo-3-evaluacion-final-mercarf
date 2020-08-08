@@ -45,7 +45,7 @@ const App = () => {
           image={character.image}
           species={character.species}
           gender={character.gender}
-          origin={character.origin.nam}
+          origin={character.origin.name}
           status={character.status}
           episode={character.episode.length}
         />
@@ -73,7 +73,13 @@ const App = () => {
   return (
     <div className='App'>
       <header className='header'>
-        <img src={Logo} alt='Logo Rick and Morty' className='header__logo' />
+        <div className='header__box'>
+          {/* <img
+            src={Logo}
+            alt='Logo Rick and Morty'
+            className='header__box__logo'
+          /> */}
+        </div>
       </header>
       <main className='main'>
         <Switch>
