@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Stylsheets/leyend.scss';
 import humanLogo from '../images/humano.svg';
 import womanLogo from '../images/hombre.png';
@@ -11,13 +11,34 @@ import aliveLogo from '../images/corazon-rosa.svg';
 import deathLogo from '../images/tumba.png';
 
 const Leyend = (props) => {
+  const [activeCollapsible, setActiveCollapsible] = useState('');
+
+  const changeCollapsible = (ev) => {
+    const clickedLeyend = ev.currentTarget.id;
+    console.log(clickedLeyend);
+    console.log(activeCollapsible);
+    if (clickedLeyend === activeCollapsible) {
+      return setActiveCollapsible('');
+    } else {
+      return setActiveCollapsible(clickedLeyend);
+    }
+  };
+
   return (
     <div className='leyend '>
-      <div className='leyend__box'>
+      <div
+        className={`leyend__box `}
+        id='collapsible'
+        onClick={changeCollapsible}
+      >
         <h2 className='leyend__box__title'>Leyenda</h2>
-        <i class='fas fa-chevron-down' />
+        <i className='fas fa-chevron-down' />
       </div>
-      <div className='leyend__list'>
+      <div
+        className={`leyend__list ${
+          activeCollapsible === 'collapsible' ? 'notHidden' : ''
+        }`}
+      >
         <div className='leyend__list__title1'>
           <h3 className='title'>Especies</h3>
           <div className='leyend__list__title1__species'>

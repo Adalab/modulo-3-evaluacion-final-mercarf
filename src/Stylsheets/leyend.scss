@@ -1,11 +1,10 @@
 @import './mixins';
 .leyend {
-  // display: none;
   background-color: darkcyan;
   color: aquamarine;
   width: 300px;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
   margin-top: 20px;
   border-radius: 15px;
   &__box {
@@ -27,10 +26,7 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    display: none;
     &__title1,
     &__title2 {
       border-radius: 5px;
@@ -47,12 +43,14 @@
           border-radius: 5px;
           min-width: 150px;
           padding-right: 10px;
+          padding-left: 10px;
           margin-bottom: 5px;
         }
 
         &__alien {
           border: 1px solid aquamarine;
           border-radius: 5px;
+          padding-right: 10px;
           padding-left: 10px;
           min-width: 150px;
         }
@@ -61,6 +59,8 @@
         border: 1px solid aquamarine;
         border-radius: 5px;
         min-width: 150px;
+        padding-right: 10px;
+        padding-left: 10px;
         .alive {
           border-right: 1px solid aquamarine;
         }
@@ -74,10 +74,8 @@
   @include tablet {
     width: 650px;
     &__list {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
+      display: none;
+
       &__title1,
       &__title2 {
         border: 1px solid aquamarine;
@@ -152,5 +150,15 @@
   .leyend-logo {
     width: 40px;
     height: 40px;
+  }
+}
+
+.notHidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @include tablet {
+    flex-direction: row;
   }
 }
