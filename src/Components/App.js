@@ -29,7 +29,7 @@ const App = () => {
   }, [filterName]);
 
   // Funcion por LIFTING, recogemos el valor introducido en el input
-  const handleFilterName = (data) => {
+  const handleFilters = (data) => {
     setFilterName(data.value);
     console.log(data);
   };
@@ -90,10 +90,7 @@ const App = () => {
       <main className='main'>
         <Switch>
           <Route exact path='/'>
-            <Filters
-              filterName={filterName}
-              handleFilterName={handleFilterName}
-            />
+            <Filters filterName={filterName} handleFilters={handleFilters} />
             <CharacterList
               filterName={filterName}
               characters={renderFilteredCharacter()}
