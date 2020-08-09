@@ -15,10 +15,10 @@ const CharacterCard = (props) => {
             alt={props.name}
           />
         </div>
-        <h3 className='character__list__card__name'>{props.name}</h3>
-        <h4 className={`character__list__card__species ${props.species}`}>
+        <h2 className='character__list__card__name'>{props.name}</h2>
+        <h3 className={`character__list__card__species ${props.species}`}>
           {props.species}
-        </h4>
+        </h3>
       </li>
     </Link>
   );

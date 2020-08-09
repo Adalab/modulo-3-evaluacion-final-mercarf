@@ -18,17 +18,17 @@ const Filters = (props) => {
 
   return (
     <form className='form' onSubmit={preventDefaultActions}>
-      <label className='form__label'>
+      <label className='form__label' htmlFor='filterName'>
         Busca tu personaje favorito:
-        <input
-          type='text'
-          className='form__label__input'
-          id='filterName'
-          value={props.filterName}
-          onChange={handleFilterName}
-          placeholder='Nombre del personaje'
-        ></input>
       </label>
+      <input
+        type='text'
+        className='form__label__input'
+        id='filterName'
+        value={props.filterName}
+        onChange={handleFilterName}
+        placeholder='Nombre del personaje'
+      ></input>
     </form>
   );
 };
