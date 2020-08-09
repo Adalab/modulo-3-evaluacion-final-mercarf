@@ -41,18 +41,26 @@
     color: aquamarine;
     margin-bottom: 50px;
     label {
+      padding: 5px;
+      font-size: 18px;
       font-weight: bold;
       letter-spacing: 1.5px;
-      font-size: 20px;
+      box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px aquamarine;
     }
     input {
+      margin-top: 10px;
+      font-size: 18px;
       margin-left: 10px;
       padding: 5px 5px 5px 10px;
       border: 2px solid darkcyan;
+      box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px aquamarine;
       border-radius: 5px;
       background-color: aquamarine;
       color: darkcyan;
       font-weight: bolder;
+      @include tablet {
+        margin-top: 0px;
+      }
     }
     input::placeholder {
       color: darkcyan;
@@ -87,7 +95,7 @@
     padding-top: 20px;
     margin: 0 auto;
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 20px;
     color: white;
     @include tablet {
       grid-template-columns: repeat(3, 250px);
@@ -120,13 +128,35 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px khaki;
       border-radius: 20px;
       background-color: darkcyan;
       color: aquamarine;
       min-height: 300px;
+      width: 220px;
 
       &__name {
         margin-bottom: 10px;
+      }
+      &:hover {
+        animation-name: pulse, pulseOut;
+        animation-duration: 0.3s, 1.5s;
+        animation-delay: 0s, 0.3s;
+        animation-timing-function: ease-out, ease-in-out;
+        animation-iteration-count: 1, infinite;
+        animation-fill-mode: forwards;
+        animation-direction: normal, alternate;
+        background-color: rgba(82, 112, 22, 0.849);
+        background-color: aquamarine;
+        color: darkcyan;
+        .Human {
+          background-color: darkcyan;
+          color: aquamarine;
+        }
+        .Alien {
+          background-color: brown;
+          color: aquamarine;
+        }
       }
 
       &__box {
@@ -142,26 +172,12 @@
     min-height: 80vh;
     margin: auto;
     width: 100%;
-    .leyend {
-      background-color: darkcyan;
-      color: aquamarine;
-      width: 650px;
-      margin: auto;
-      padding: 30px;
-      margin-top: 20px;
-      border-radius: 15px;
 
-      &__list {
-        display: flex;
-      }
-    }
-    .leyend-logo {
-      width: 40px;
-      height: 40px;
-    }
     .content {
       background-color: darkcyan;
       color: aquamarine;
+      box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px khaki;
+
       border-radius: 20px;
       width: 300px;
       margin: auto;
@@ -169,6 +185,7 @@
       text-align: left;
       min-height: 300px;
       &__title {
+        text-transform: uppercase;
         padding-bottom: 10px;
         display: flex;
         flex-direction: row;
@@ -194,11 +211,20 @@
         &__image {
           border-radius: 10px;
           margin-bottom: 20px;
+          box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset,
+            0 0 8px aquamarine;
         }
       }
       .detail-logo {
         width: 40px;
         height: 40px;
+      }
+      .content__description {
+        // border: 1px solid aquamarine;
+        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset,
+          0 0 8px aquamarine;
+        border-radius: 5px;
+        padding: 5px;
       }
       &__description1 {
         width: 100%;
@@ -217,7 +243,7 @@
         justify-content: space-between;
         align-items: flex-start;
         li {
-          margin-right: 20px;
+          text-align: center;
         }
       }
     }
@@ -248,10 +274,10 @@
         &__box {
           display: flex;
           flex-direction: row;
-          justify-content: flex-start;
+          justify-content: space-around;
           align-items: center;
           &__image {
-            margin-right: 20px;
+            margin-bottom: 0;
             border-radius: 10px;
           }
         }
@@ -296,4 +322,22 @@
 
 .hidden {
   display: none;
+}
+
+@keyframes pulseOut {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes pulse {
+  100% {
+    transform: scale(0.95);
+  }
 }
