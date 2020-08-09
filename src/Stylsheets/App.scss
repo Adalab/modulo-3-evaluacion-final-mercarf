@@ -48,6 +48,7 @@
       box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px aquamarine;
     }
     input {
+      margin-top: 10px;
       font-size: 18px;
       margin-left: 10px;
       padding: 5px 5px 5px 10px;
@@ -57,6 +58,9 @@
       background-color: aquamarine;
       color: darkcyan;
       font-weight: bolder;
+      @include tablet {
+        margin-top: 0px;
+      }
     }
     input::placeholder {
       color: darkcyan;
@@ -120,6 +124,14 @@
         margin-bottom: 10px;
       }
       &:hover {
+        animation-name: pulse, pulseOut;
+        animation-duration: 0.3s, 1.5s;
+        animation-delay: 0s, 0.3s;
+        animation-timing-function: ease-out, ease-in-out;
+        animation-iteration-count: 1, infinite;
+        animation-fill-mode: forwards;
+        animation-direction: normal, alternate;
+        background-color: rgba(82, 112, 22, 0.849);
         background-color: aquamarine;
         color: darkcyan;
         .Human {
@@ -247,7 +259,7 @@
         &__box {
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
+          justify-content: space-around;
           align-items: center;
           &__image {
             margin-bottom: 0;
@@ -295,4 +307,22 @@
 
 .hidden {
   display: none;
+}
+
+@keyframes pulseOut {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes pulse {
+  100% {
+    transform: scale(0.95);
+  }
 }

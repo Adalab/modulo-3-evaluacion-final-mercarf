@@ -32,7 +32,11 @@ const Leyend = (props) => {
         onClick={changeCollapsible}
       >
         <h2 className='leyend__box__title'>Leyenda</h2>
-        <i className='fas fa-chevron-down' />
+        <i
+          className={`fas fa-chevron-down ${
+            activeCollapsible === 'collapsible' ? 'transform' : ''
+          }`}
+        />
       </div>
       <div
         className={`leyend__list ${
