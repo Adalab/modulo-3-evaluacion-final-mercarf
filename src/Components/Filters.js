@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Filters = (props) => {
   // Recogemos el valor introducido en el input y lo pasamos por lifting al componente manejador App
@@ -32,6 +32,19 @@ const Filters = (props) => {
     ev.preventDefault();
   };
 
+  const [activeCollapsible, setActiveCollapsible] = useState('');
+
+  const changeCollapsible = (ev) => {
+    const clickedFilterSection = ev.currentTarget.id;
+    console.log(clickedFilterSection);
+    console.log(activeCollapsible);
+    if (clickedFilterSection === activeCollapsible) {
+      return setActiveCollapsible('');
+    } else {
+      return setActiveCollapsible(clickedFilterSection);
+    }
+  };
+
   return (
     <form className='form' onSubmit={preventDefaultActions}>
       <label className='form__label' htmlFor='filterName'>
@@ -45,9 +58,27 @@ const Filters = (props) => {
         onChange={handleFilterName}
         placeholder='Nombre del personaje'
       ></input>
-      <div>
-        <fieldset>
-          <div>
+      <div className='filter__section'>
+        <div
+          className='filter__section__box'
+          id='collapsible'
+          onClick={changeCollapsible}
+        >
+          <h3 className='filter__section__box__title'>Filtros</h3>
+          <span className='filter__section__box__icon'>
+            <i
+              className={`fas fa-chevron-down ${
+                activeCollapsible === 'collapsible' ? 'transform' : ''
+              }`}
+            />
+          </span>
+        </div>
+        <fieldset
+          className={`filter__section__field ${
+            activeCollapsible === 'collapsible' ? 'notHidden' : ''
+          }`}
+        >
+          <div className='filter-box'>
             <label htmlFor='filterSpecies' className='form__label '>
               Especie:
             </label>
@@ -62,7 +93,7 @@ const Filters = (props) => {
             </select>
           </div>
 
-          <div>
+          <div className='filter-box'>
             <label htmlFor='filterStatus' className='form__label '>
               Estado vital:
             </label>
@@ -77,7 +108,7 @@ const Filters = (props) => {
               <option value='unknown'>Desconocido</option>
             </select>
           </div>
-          <div>
+          <div className='filter-box'>
             <label htmlFor='filterGender' className='form__label '>
               Género:
             </label>

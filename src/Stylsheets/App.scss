@@ -341,3 +341,65 @@
     transform: scale(0.95);
   }
 }
+
+/* Colapsable filtros */
+.filter__section {
+  width: 350px;
+  margin: auto;
+  &:hover {
+    color: khaki;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &__title {
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      margin-right: 20px;
+    }
+    &__icon {
+      padding-bottom: 10px;
+    }
+  }
+  &__field {
+    display: none;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid aquamarine;
+    .filter-box {
+      display: flex;
+      justify-content: space-between;
+      label {
+        width: 150px;
+      }
+      select {
+        font-size: 16px;
+        padding: 5px 5px 5px 10px;
+        border: 2px solid darkcyan;
+        border-radius: 5px;
+        background-color: aquamarine;
+        color: darkcyan;
+        font-weight: bolder;
+        width: 145px;
+        @include tablet {
+        }
+      }
+      select:focus,
+      textarea:focus {
+        border-color: khaki;
+        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px khaki;
+        outline: 0 none;
+      }
+    }
+  }
+  .notHidden {
+    display: block;
+    @include tablet {
+    }
+  }
+}
