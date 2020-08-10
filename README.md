@@ -111,6 +111,7 @@ Me gustaría seguir implementando:
 - Funcionalidad para pasar de página al ver el listado de personaje
 - Funcionalidad para pasar de personaje al ver el detalle de cada uno
 - Añadir una página landing
+- Añadir menú de navegación
 - Añadir enlace a la página principal desde el error de ruta de detalle
 
 6. ### Sugerencias
