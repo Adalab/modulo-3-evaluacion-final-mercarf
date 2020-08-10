@@ -4,13 +4,13 @@ const Filters = (props) => {
   // Recogemos el valor introducido en el input y lo pasamos por lifting al componente manejador App
   const handleFilterName = (ev) => {
     props.handleFilters({
-      key: 'FilterName',
+      key: 'filterName',
       value: ev.target.value,
     });
   };
   const handleFilterSpecies = (ev) => {
     props.handleFilters({
-      key: 'FilterSpecies',
+      key: 'filterSpecies',
       value: ev.target.value,
     });
   };
@@ -34,26 +34,62 @@ const Filters = (props) => {
         placeholder='Nombre del personaje'
       ></input>
       <div>
-        <label htmlFor='filterSpecies1' className='Human'>
-          <input
-            id='filterSpecies1'
-            type='checkbox'
-            value='Human'
-            name='filterSpecies'
-            onChange={handleFilterSpecies}
-          />
-          Humano
-        </label>
-        <label htmlFor='filterSpecies2' className='Alien'>
-          <input
-            id='filterSpecies2'
-            type='checkbox'
-            value='Alien'
-            name='filterSpecies'
-            onChange={handleFilterSpecies}
-          />
-          Alien
-        </label>
+        <fieldset>
+          <label htmlFor='order' className='order'>
+            <input
+              id='order'
+              type='checkbox'
+              value='order'
+              name='order'
+              // onChange={handleFilterSpecies}
+            />
+            Ordenar Afabéticamente
+          </label>
+          <div>
+            <label htmlFor='filterSpecies' className='form__label '>
+              Especie:
+            </label>
+            <select
+              id='filterSpecies'
+              value={props.filterSpecies}
+              onChange={handleFilterSpecies}
+            >
+              <option value='all'>Todas</option>
+              <option value='Human'>Humano</option>
+              <option value='Alien'>Alien</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor='filterStatus' className='form__label '>
+              Estado vital:
+            </label>
+            <select
+              id='filterStatus'
+              // value={props.filterPrice}
+              // onChange={handleFilterPrice}
+            >
+              <option value='all'>Todos</option>
+              <option value='Alive'>Vivo</option>
+              <option value='Death'>Muerto</option>
+              <option value='unknown'>Desconocido</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor='filterGender' className='form__label '>
+              Género:
+            </label>
+            <select
+              id='filterGender'
+              // value={props.filterPrice}
+              // onChange={handleFilterPrice}
+            >
+              <option value='all'>Todos</option>
+              <option value='Female'>Femenino</option>
+              <option value='Male'>Masculino</option>
+            </select>
+          </div>
+        </fieldset>
       </div>
     </form>
   );

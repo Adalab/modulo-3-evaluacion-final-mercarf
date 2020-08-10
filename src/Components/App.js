@@ -13,6 +13,7 @@ const App = () => {
   /* En el estado por defecto recogemos el valor que haya guardado en el LOCALSTORAGE
   para conservar la ultima búsqueda realizada por el usuario */
   const [filterName, setFilterName] = useState('');
+  const [filterSpecies, setFilterSpecies] = useState('all');
 
   //JSON.parse(localStorage.getItem('filterName')
 
@@ -27,12 +28,6 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('filterName', JSON.stringify(filterName));
   }, [filterName]);
-
-  // Funcion por LIFTING, recogemos el valor introducido en el input
-  const handleFilters = (data) => {
-    setFilterName(data.value);
-    console.log(data);
-  };
 
   //Funcion que se encarga de pintar el detalle de las tarjetas
   const renderCharacterDetail = (props) => {
@@ -70,16 +65,34 @@ const App = () => {
     );
   };
 
+  // Funcion por LIFTING, recogemos el valor introducido en el input
+  const handleFilters = (data) => {
+    if (data.key === 'filterName') {
+      setFilterName(data.value);
+    } else if (data.key === 'filterSpecies') {
+      setFilterSpecies(data.value);
+    }
+    console.log(data);
+  };
+
   /* Funcion que se encarga de pintar/filtrar las tarjetas que coincidan con las 
  letras introducidas en el input */
   const renderFilteredCharacter = () => {
     orderName();
-    return characters.filter((character) => {
-      const characters = character.name
-        .toUpperCase()
-        .includes(filterName.toUpperCase());
-      return characters;
-    });
+    return characters
+      .filter((character) => {
+        const characters = character.name
+          .toUpperCase()
+          .includes(filterName.toUpperCase());
+        return characters;
+      })
+      .filter((character) => {
+        if (filterSpecies === 'all') {
+          return true;
+        } else {
+          return character.species === filterSpecies;
+        }
+      });
   };
 
   return (
@@ -90,7 +103,11 @@ const App = () => {
       <main className='main'>
         <Switch>
           <Route exact path='/'>
-            <Filters filterName={filterName} handleFilters={handleFilters} />
+            <Filters
+              filterName={filterName}
+              filterSpecies={filterSpecies}
+              handleFilters={handleFilters}
+            />
             <CharacterList
               filterName={filterName}
               characters={renderFilteredCharacter()}
