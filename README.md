@@ -18,6 +18,7 @@ Vamos de definir las distintas partes del ejercicio:
 2. [Listado de personajes](#Listado-de-personajes)
 3. [Filtrado de personajes](#Filtrado-de-personajes)
 4. [Detalle de personajes](#Detalle-de-personajes)
+5. [Pendiente](#Pendiente)
 
 ---
 
@@ -56,6 +57,8 @@ Para eso, vamos a utilizar el servicio de https://rickandmortyapi.com/documentat
 - **BONUS:** Usar algún sistema de grid para pintar el listado de personajes.
 - **BONUS:** Ordenar el listado de personajes alfabéticamente por nombre.
 
+- **EXTRA:** Guardamos y rrecogemos los datos al LocalStorage para mantener la última búsqueda que hayamos realizado.
+
 ![GridAndOrder](./infoReadme/GridAndOrder.png)
 
 3.  ### Filtrado de personajes
@@ -70,6 +73,10 @@ Ahora que ya tenemos el listado de personajes en pantalla, la segunda parte cons
 
 ![ErrorFiltroNombre](./infoReadme/ErrorFiltroNombre.png)
 
+- **EXTRA** También hemos creado varios `select` para poder filtar los personajes por especie, género y estado.
+
+![FiltroSelect](./infoReadme/FiltroSelect.png)
+
 4.  ### Detalle de personajes
 
 Implementamos una **nueva funcionalidad**: al hacer clic sobre la tarjeta de un personaje, su información aparecerá a pantalla completa.
@@ -78,7 +85,7 @@ Para hacer esto usamos `rutas` y `React router`.
 
 En la pantalla de detalle aparecerá además de la foto, nombre y especie; el planeta de origen, el número de episodios en los que aparece y si está **vivo** o **muerto**.
 
-- **BONUS:** Mostramos la especie y si un personajes está muerto con un icono.
+- **BONUS:** Mostramos la especie, el estado y el género con un icono.
 
 ![Detalle](./infoReadme/Detalle.png)
 
@@ -91,3 +98,12 @@ En la pantalla de detalle aparecerá además de la foto, nombre y especie; el pl
 - **EXTRA** He añadido una leyenda colapsable para aclarar cualquier tipo de duda con los iconos.
 
 ![Leyenda](./infoReadme/Leyenda.png)
+
+4.  ### Pendiente
+
+Me gustaría seguir implementando:
+
+- Un App.test.js
+- Un reseteo de filtros
+- Añadir un página landing
+- Añadir enlace a la página principal desde el error de ruta de detalle
