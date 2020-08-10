@@ -104,6 +104,7 @@ En la pantalla de detalle aparecerá además de la foto, nombre y especie; el pl
 
 Me gustaría seguir implementando:
 
+- Añadir Proptypes
 - Un App.test.js
 - Añadir un Loading al pedir los datos al Api
 - Un reseteo de filtros
