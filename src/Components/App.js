@@ -14,6 +14,8 @@ const App = () => {
   para conservar la ultima búsqueda realizada por el usuario */
   const [filterName, setFilterName] = useState('');
   const [filterSpecies, setFilterSpecies] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [filterGender, setFilterGender] = useState('all');
 
   //JSON.parse(localStorage.getItem('filterName')
 
@@ -71,6 +73,10 @@ const App = () => {
       setFilterName(data.value);
     } else if (data.key === 'filterSpecies') {
       setFilterSpecies(data.value);
+    } else if (data.key === 'filterStatus') {
+      setFilterStatus(data.value);
+    } else if (data.key === 'filterGender') {
+      setFilterGender(data.value);
     }
     console.log(data);
   };
@@ -92,6 +98,20 @@ const App = () => {
         } else {
           return character.species === filterSpecies;
         }
+      })
+      .filter((character) => {
+        if (filterStatus === 'all') {
+          return true;
+        } else {
+          return character.status === filterStatus;
+        }
+      })
+      .filter((character) => {
+        if (filterGender === 'all') {
+          return true;
+        } else {
+          return character.gender === filterGender;
+        }
       });
   };
 
@@ -106,6 +126,8 @@ const App = () => {
             <Filters
               filterName={filterName}
               filterSpecies={filterSpecies}
+              filterStatus={filterStatus}
+              filterGender={filterGender}
               handleFilters={handleFilters}
             />
             <CharacterList

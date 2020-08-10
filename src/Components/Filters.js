@@ -14,6 +14,18 @@ const Filters = (props) => {
       value: ev.target.value,
     });
   };
+  const handleFilterStatus = (ev) => {
+    props.handleFilters({
+      key: 'filterStatus',
+      value: ev.target.value,
+    });
+  };
+  const handleFilterGender = (ev) => {
+    props.handleFilters({
+      key: 'filterGender',
+      value: ev.target.value,
+    });
+  };
 
   // Prevenimos las acciones por defecto, como que refresque al pulsar tecla enter
   const preventDefaultActions = (ev) => {
@@ -35,16 +47,6 @@ const Filters = (props) => {
       ></input>
       <div>
         <fieldset>
-          <label htmlFor='order' className='order'>
-            <input
-              id='order'
-              type='checkbox'
-              value='order'
-              name='order'
-              // onChange={handleFilterSpecies}
-            />
-            Ordenar Afabéticamente
-          </label>
           <div>
             <label htmlFor='filterSpecies' className='form__label '>
               Especie:
@@ -66,12 +68,12 @@ const Filters = (props) => {
             </label>
             <select
               id='filterStatus'
-              // value={props.filterPrice}
-              // onChange={handleFilterPrice}
+              value={props.filterStatus}
+              onChange={handleFilterStatus}
             >
               <option value='all'>Todos</option>
               <option value='Alive'>Vivo</option>
-              <option value='Death'>Muerto</option>
+              <option value='Dead'>Muerto</option>
               <option value='unknown'>Desconocido</option>
             </select>
           </div>
@@ -81,8 +83,8 @@ const Filters = (props) => {
             </label>
             <select
               id='filterGender'
-              // value={props.filterPrice}
-              // onChange={handleFilterPrice}
+              value={props.filterGender}
+              onChange={handleFilterGender}
             >
               <option value='all'>Todos</option>
               <option value='Female'>Femenino</option>
