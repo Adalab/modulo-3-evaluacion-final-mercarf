@@ -4,74 +4,90 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### Mercedes Carballal
 
+![Rick y Morty](./src/images/Logo.png)
+
 ## Buscador de personajes de Rick y Morty
 
-El ejercicio consiste en desarrollar una página web con un **listado de personajes de Rick and Morty**, que
+El ejercicio consiste en desarrollar una página web _responsive_ con un **listado de personajes de Rick and Morty**, que
 podemos filtrar por el nombre del personaje. Vamos a usar React para realizarlo.
 Vamos de definir las distintas partes del ejercicio:
 
 ### INDICE
 
-1. [Listado de personajes](#Listado-de-personajes)
-2. [Filtrado de personajes](#Filtrado-de-personajes)
-3. [Componentes del listado de personajes](#Componentes-del-listado-de-personajes)
+1. [Estructura de datos](#Estructura-de-datos)
+2. [Listado de personajes](#Listado-de-personajes)
+3. [Filtrado de personajes](#Filtrado-de-personajes)
 4. [Detalle de personajes](#Detalle-de-personajes)
-5. [Detallitos de calidad](#Detallitos-de-calidad)
-6. [BONUS: Mejoras visuales](#BONUS-Mejoras-visuales)
-7. [BONUS: URL compartible](#bonus-url-compartible)
-8. [BONUS: Ordenación](#BONUS-Ordenación)
 
---------------------------------------------------------------------------------------
+---
 
-1.  ### Listado de personajes
+1.  ### Estructura de datos
+
+```
+src
+ ├─ Components
+ |  └─ App.js
+ |      ├─ Filters.js
+ |      ├─ CharacterList.js
+ |      |   └─ CharacterCard.js
+ |      └─ CharacterDetail.js
+ |          └─ Leyend.js
+ ├─ images
+ ├─ services
+ |   └─ getDataFromApi.js
+ ├─ scss
+ |  ├─ components
+ |  ├─ core
+ |  ├─ layout
+ |  └─ pages
+ └─ html
+    └─ partials
+```
+
+---
+
+2.  ### Listado de personajes
 
 En primer lugar, vamos a realizar una web con el listado de personajes de Rick and Morty.
-Para eso, vamos a utilizar el servicio de https://rickandmortyapi.com/documentation/#get-all-characters que nos devuelve información sobre los primeros 20 personajes de la serie. Sobre cada uno, vamos a pintar al menos:
-- Foto
-- Nombre
-- Especie
+Para eso, vamos a utilizar el servicio de https://rickandmortyapi.com/documentation/#get-all-characters que nos devuelve información sobre los primeros 20 personajes de la serie. Sobre cada uno, vamos a pintar al menos: la foto, el nombre y la especie.
 
-2.  ### Filtrado de personajes
+![Listado](./infoReadme/Listado.png)
 
-Ahora que ya tenemos el listado de personajes en pantalla, la segunda parte consiste en poder buscarlos por nombre. Para eso, añadimos un `input` a la interfaz, de forma que al ir escribiendo un nombre queden en la interfaz solo los personajes cuyo nombre contiene las letras escritas. En el pantallazo de arriba, al escribir 'Ric' aparecen personajes cuyo nombre completo contiene esas letras en ese orden.
+- **BONUS:** Usar algún sistema de grid para pintar el listado de personajes.
+- **BONUS:** Ordenar el listado de personajes alfabéticamente por nombre.
 
-3.  ### Componentes del listado de personajes
+![GridAndOrder](./infoReadme/GridAndOrder.png)
 
-    El listado debe tener los siguientes componentes como mínimo:
+3.  ### Filtrado de personajes
 
-        - Componente para los filtros
+Ahora que ya tenemos el listado de personajes en pantalla, la segunda parte consiste en poder buscarlos por nombre. Para eso, añadimos un `input` a la interfaz, de forma que al ir escribiendo un nombre queden en la interfaz solo los personajes cuyo nombre contiene las letras escritas.
 
-        - Componente para el listado
+> **NOTA:** El filtro debe filtrar independientemente de que la usuaria introduzca el texto en mayúsuclas o minúsculas.
 
-        - Componente para la tarjeta de cada personaje del listado
+![FiltroNombre](./infoReadme/FiltroNombre.png)
 
-        - Componente para el detalle de cada personaje
+> **NOTA:** Si buscamos por un texto por ejemplo "XXX" y no hay ningún personaje que coincida con dicho texto se muestra un mensaje de error que dice: _"No hay ningún personaje que coincida con la palabra XXX"_.
+
+![ErrorFiltroNombre](./infoReadme/ErrorFiltroNombre.png)
 
 4.  ### Detalle de personajes
 
-Vamos a implementar una **nueva funcionalidad**: al hacer clic sobre la tarjeta de un personaje, su información aparecerá a pantalla completa. Para hacer esto usaremos *rutas y React router*.
-En la pantalla de detalle aparecerá además de la foto, nombre y especie, el planeta de origen, el número de episodios en los que aparece y si está **vivo** o **muerto**.
+Implementamos una **nueva funcionalidad**: al hacer clic sobre la tarjeta de un personaje, su información aparecerá a pantalla completa.
 
-5.  ### Detallitos de calidad
+Para hacer esto usamos `rutas` y `React router`.
 
-- Como nos gusta cuidar la semántica, el campo de texto debe estar recubierto por una etiqueta `form`.
-- Si estando en el campo de filtrado pulsamos intro debéis impedir que el navegador navegue o cambie la ruta sin querer.
-- Si se busca por un texto por ejemplo "XXX" y no hay ningún personaje que coincida con dicho texto se debe mostrar un mensaje del tipo "No hay ningún personaje que coincida con la palabra XXX".
-- El filtro debe filtrar independientemente de que la usuaria introduzca el texto en mayúsuclas o minúsculas.
-- Al entrar en el detalle de un personaje y a continuación pulsar atrás, el campo de texto debe mostrar el texto que tenía anteriormente.
+En la pantalla de detalle aparecerá además de la foto, nombre y especie; el planeta de origen, el número de episodios en los que aparece y si está **vivo** o **muerto**.
 
-6.  ### BONUS: Mejoras visuales
+- **BONUS:** Mostramos la especie y si un personajes está muerto con un icono.
 
-    Para terminar, podemos realizar algunas mejoras visuales del ejercicio. Por ejemplo:
+![Detalle](./infoReadme/Detalle.png)
 
-          - Mostrar la especie y si un personajes está muerto con un icono.
-          - Usar algún sistema de grid para pintar el listado de personajes.
-          - Que funcione bien el responsive en dispositivos pequeños.
+- **BONUS:** La URL del detalle de personaje es compartible, es decir, que si visitamos esa URL directamente en el navegador se ve el detalle del personaje. Y en el caso de que el usuario navegue a una URL inexistente como por ejemplo http://localhost:3000/#/detail/12345 (el id 12345 no existe) mostramos un mensaje del tipo _"El personaje que buscas no existe"_.
 
-7.  ### BONUS: URL compartible
+![RutaDetalle](./infoReadme/RutaDetalle.png)
 
-Como ejercicio se propone que la URL del detalle de personaje sea compartible, es decir, que si visitamos esa URL directamente en el navegador se vea el detalle del personaje. Y en el caso de que el usuario navegue a una URL inexistente como por ejemplo http://localhost:3000/#/detail/12345 (el id 12345 no existe) debemos mostrar un mensaje del tipo _"El personaje que buscas no existe"_.
+> **NOTA:** Al entrar en el detalle de un personaje y a continuación pulsar atrás, el campo de texto de búsqueda muestra el texto que tenía anteriormente.
 
-8.  ### BONUS: Ordenación
+- **EXTRA** He añadido una leyenda colapsable para aclarar cualquier tipo de duda con los iconos.
 
-Un extra interesante sería ordenar el listado de personajes alfabéticamente por nombre.
+![Leyenda](./infoReadme/Leyenda.png)
