@@ -19,6 +19,7 @@ Vamos de definir las distintas partes del ejercicio:
 3. [Filtrado de personajes](#Filtrado-de-personajes)
 4. [Detalle de personajes](#Detalle-de-personajes)
 5. [Pendiente](#Pendiente)
+6. [Sugerencias](#Sugerencias)
 
 ---
 
@@ -99,11 +100,20 @@ En la pantalla de detalle aparecerá además de la foto, nombre y especie; el pl
 
 ![Leyenda](./infoReadme/Leyenda.png)
 
-4.  ### Pendiente
+5.  ### Pendiente
 
 Me gustaría seguir implementando:
 
 - Un App.test.js
+- Añadir un Loading al pedir los datos al Api
 - Un reseteo de filtros
-- Añadir un página landing
+- Funcionalidad para pasar de página al ver el listado de personaje
+- Funcionalidad para pasar de personaje al ver el detalle de cada uno
+- Añadir una página landing
 - Añadir enlace a la página principal desde el error de ruta de detalle
+
+6. ### Sugerencias
+
+Me encantaría recibir tu feedback, no dudes en abrir una PullRequest o Issue para seguir mejorando.
+
+Gracias!
