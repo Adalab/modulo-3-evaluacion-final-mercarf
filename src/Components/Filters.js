@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+/* Este componente muestra el menú de filtrado */
+
 const Filters = (props) => {
   // Recogemos el valor introducido en el input y lo pasamos por lifting al componente manejador App
   const handleFilterName = (ev) => {
@@ -36,8 +38,6 @@ const Filters = (props) => {
 
   const changeCollapsible = (ev) => {
     const clickedFilterSection = ev.currentTarget.id;
-    console.log(clickedFilterSection);
-    console.log(activeCollapsible);
     if (clickedFilterSection === activeCollapsible) {
       return setActiveCollapsible('');
     } else {

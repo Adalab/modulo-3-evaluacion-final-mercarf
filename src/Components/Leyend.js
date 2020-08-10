@@ -10,13 +10,13 @@ import unknownLogo from '../images/interrogacion-color.svg';
 import aliveLogo from '../images/corazon-rosa.svg';
 import deathLogo from '../images/tumba.png';
 
+/* Este componente muestra la leyenda */
+
 const Leyend = (props) => {
   const [activeCollapsible, setActiveCollapsible] = useState('');
 
   const changeCollapsible = (ev) => {
     const clickedLeyend = ev.currentTarget.id;
-    console.log(clickedLeyend);
-    console.log(activeCollapsible);
     if (clickedLeyend === activeCollapsible) {
       return setActiveCollapsible('');
     } else {

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Este componente muuestra la previsualización de cada tarjeta
-const CharacterCard = (props) => {
-  // console.log(props.name);
+/* Este componente muestra la previsualización de cada tarjeta */
 
+const CharacterCard = (props) => {
   return (
     <Link to={`/character/${props.id}`}>
       <li className={`character__list__card list__${props.species}`}>
