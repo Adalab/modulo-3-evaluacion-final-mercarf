@@ -1,9 +1,10 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
 
-// Este componente muestra el listado de tarjetas de personaje
+/* Este componente muestra el listado de tarjetas de personaje */
+
 const CharacterList = (props) => {
-  //SI no hay ninguna tarjeta mostrada (al no cumplirse le includes()), aparece error
+  //Si no hay ninguna tarjeta mostrada (al no cumplirse el includes()), aparece un error
   if (props.characters.length === 0) {
     return (
       <p className='characterNotFound'>
@@ -12,7 +13,7 @@ const CharacterList = (props) => {
     );
   }
 
-  //Mapeamos la lista de tarjetas de personaje, pasandole las props al CharacterCard
+  // Mapeamos la lista de tarjetas de personaje, pasándole las props al CharacterCard
   const charactersList = props.characters.map((character) => {
     return (
       <CharacterCard

@@ -10,21 +10,23 @@ import femaleLogo from '../images/femenino.svg';
 import maleLogo from '../images/masculino.svg';
 import unknownLogo from '../images/interrogacion-color.svg';
 import aliveLogo from '../images/corazon-rosa.svg';
-import deathLogo from '../images/tumba.png';
+import deadLogo from '../images/tumba.png';
 
-// Función para renderizar el estado correcto de cada personaje
+/* Este componente muestra el detalle de cada personaje */
+
 const CharacterDetail = (props) => {
+  // Función para cambiar el estado de cada personaje por una imagen
   const changeImgStatus = () => {
     if (props.status === 'Alive') {
       return aliveLogo;
     } else if (props.status === 'Dead') {
-      return deathLogo;
+      return deadLogo;
     } else {
       return unknownLogo;
     }
   };
 
-  // Función para renderizar la especie correcta de cada personaje
+  // Función para cambiar la especie de cada personaje por una imagen
   const changeImgSpecies = () => {
     if (props.species === 'Human') {
       return humanLogo;
@@ -33,7 +35,7 @@ const CharacterDetail = (props) => {
     }
   };
 
-  // Función para renderizar la especie correcta de cada personaje
+  // Función para cambiar el género de cada personaje por una imagen
   const changeImgGender = () => {
     if (props.gender === 'Female' && props.species === 'Human') {
       return womanLogo;
@@ -45,8 +47,6 @@ const CharacterDetail = (props) => {
       return maleLogo;
     }
   };
-
-  // console.log(props);
 
   return (
     <div className='character__detail'>

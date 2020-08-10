@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import '../Stylsheets/App.scss';
 import getDataFromApi from '../Services/getDataFromApi';
 import CharacterList from './CharacterList';
@@ -8,32 +8,34 @@ import Filters from './Filters';
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  // const [activeCollapsible, setActiveCollapsible] = useState('');
-
-  /* En el estado por defecto recogemos el valor que haya guardado en el LOCALSTORAGE
-  para conservar la ultima búsqueda realizada por el usuario */
-  const [filterName, setFilterName] = useState('');
+  /* El estado por defecto del filterName será, o vacío, o el valor que haya 
+  guardado en el LOCALSTORAGE */
+  const [filterName, setFilterName] = useState(
+    localStorage.getItem('filterName') || ''
+  );
   const [filterSpecies, setFilterSpecies] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterGender, setFilterGender] = useState('all');
+  console.log(filterName);
 
-  //JSON.parse(localStorage.getItem('filterName')
+  /* Realizamos acciones en las diferentes fases del CICLO DE VIDA */
 
-  // Realizamos acciones en las diferentes fases del CICLO DE VIDA
+  // 1. Llamamos a los datos del API
   useEffect(() => {
     getDataFromApi().then((data) => {
       setCharacters(data);
     });
   }, []);
 
-  // Guardamos en el LOCALSTORAGE el valor introducido en el input
+  // 2. Guardamos en el LOCALSTORAGE el valor introducido en el input
   useEffect(() => {
-    localStorage.setItem('filterName', JSON.stringify(filterName));
+    localStorage.setItem('filterName', filterName);
   }, [filterName]);
 
-  //Funcion que se encarga de pintar el detalle de las tarjetas
+  /* ------------------------------------------------------------- */
+
+  //Función que se encarga de pintar el detalle de las tarjetas
   const renderCharacterDetail = (props) => {
-    // console.log(props);
     const routeCharacterId = props.match.params.characterId;
     const character = characters.find(
       (character) => character.id === parseInt(routeCharacterId)
@@ -60,14 +62,15 @@ const App = () => {
     }
   };
 
-  // Funcion para ordenar alfabeticamente los personajes
+  // Función para ordenar alfabéticamente los personajes
   const orderName = () => {
     characters.sort((a, b) =>
       a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
     );
   };
 
-  // Funcion por LIFTING, recogemos el valor introducido en el input
+  /* Función por LIFTING, recogemos el valor introducido en el input y los select
+   y actualizamos el estado de cada filtro */
   const handleFilters = (data) => {
     if (data.key === 'filterName') {
       setFilterName(data.value);
@@ -78,11 +81,9 @@ const App = () => {
     } else if (data.key === 'filterGender') {
       setFilterGender(data.value);
     }
-    console.log(data);
   };
 
-  /* Funcion que se encarga de pintar/filtrar las tarjetas que coincidan con las 
- letras introducidas en el input */
+  /* Función que se encarga de pintar/filtrar las tarjetas por nombre, especie, estado y género */
   const renderFilteredCharacter = () => {
     orderName();
     return characters
@@ -118,7 +119,9 @@ const App = () => {
   return (
     <div className='App'>
       <header className='header'>
-        <div className='header__img'></div>
+        <Link to='/'>
+          <div className='header__img'></div>
+        </Link>
       </header>
       <main className='main'>
         <Switch>
